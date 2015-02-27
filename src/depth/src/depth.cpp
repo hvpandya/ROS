@@ -4,10 +4,13 @@
 #include <sensor_msgs/image_encodings.h>
 #include <cv_bridge/cv_bridge.h>
 #include <opencv2/highgui/highgui.hpp>
-#include <ifs.h>
+#include <string.h>
+//#include <ifs.h>
 
 using namespace std;
 //using namespace cv;
+char filename[100];
+
 
 static const int MY_ROS_QUEUE_SIZE = 100;
 void depth_node_callback(const sensor_msgs::Image::ConstPtr& msg)
@@ -28,7 +31,7 @@ cv_ptr->image.convertTo(normalized, CV_32F, 1.0/max, 0) ;
 cv_ptr->image.convertTo(op, CV_8U, 255/max, 0) ;
 
 cv::imshow("depth_node", normalized);
-cv::imwrite("sample.png",op);
+cv::imwrite(filename,op);
 cv::waitKey(1);
 } catch (const cv_bridge::Exception& e) {
 ROS_ERROR("cv_bridge exception: %s", e.what());
@@ -37,7 +40,12 @@ ROS_ERROR("cv_bridge exception: %s", e.what());
 
 int main(int argc, char **argv)
 {
+
+strcpy(filename,argv[1]);
+
+
 ros::init(argc, argv, "depth_node");
+
 cout << "Ready to stream" << endl;
 ros::NodeHandle nh;
 ros::Subscriber sub = nh.subscribe("camera/depth/image_raw",MY_ROS_QUEUE_SIZE, depth_node_callback);
