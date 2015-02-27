@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "depth")
+set(depth_MAINTAINER "harsh <hvpandya@ncsu.edu>")
+set(depth_DEPRECATED "")
+set(depth_VERSION "0.0.0")
+set(depth_BUILD_DEPENDS "roscpp" "sensor_msgs" "opencv2" "cv_bridge")
+set(depth_RUN_DEPENDS "roscpp" "sensor_msgs" "opencv2" "cv_bridge")
+set(depth_BUILDTOOL_DEPENDS "catkin")
