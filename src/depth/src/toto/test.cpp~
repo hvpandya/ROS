@@ -75,7 +75,7 @@ int main(int argc, char **argv){
 	rosrun.str("");
 		
 	//wait a little longer
-	//letswait(1);
+	letswait(1);
 	}
 	
 	
