@@ -1,0 +1,8 @@
+prefix=/home/harsh/catkin_ws/devel
+
+Name: depth
+Description: Description of depth
+Version: 0.0.0
+Cflags: -I/home/harsh/catkin_ws/src/depth/include
+Libs: -L/home/harsh/catkin_ws/devel/lib 
+Requires: 
